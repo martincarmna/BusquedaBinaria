@@ -15,3 +15,11 @@ public class BusquedaBinariaPersistente {
         } catch (Exception e) {
             System.out.println("Error al leer el archivo: " + e.getMessage());
         }
+            // Convertimos ArrayList a arreglo int[]
+        int[] arreglo = new int[lista.size()];
+        for (int i = 0; i < lista.size(); i++) {
+            arreglo[i] = lista.get(i);
+        }
+
+        return arreglo;
+    }
