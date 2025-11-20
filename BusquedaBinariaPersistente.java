@@ -1,5 +1,6 @@
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class BusquedaBinariaPersistente {
 
@@ -15,15 +16,15 @@ public class BusquedaBinariaPersistente {
         } catch (Exception e) {
             System.out.println("Error al leer el archivo: " + e.getMessage());
         }
-            // Convertimos ArrayList a arreglo int[]
+
         int[] arreglo = new int[lista.size()];
         for (int i = 0; i < lista.size(); i++) {
             arreglo[i] = lista.get(i);
         }
-
         return arreglo;
     }
-     // Algoritmo de búsqueda binaria
+
+    // Búsqueda binaria
     public static int busquedaBinaria(int[] arreglo, int dato) {
         int inicio = 0;
         int fin = arreglo.length - 1;
@@ -32,7 +33,7 @@ public class BusquedaBinariaPersistente {
             int medio = (inicio + fin) / 2;
 
             if (arreglo[medio] == dato) {
-                return medio; 
+                return medio;
             }
 
             if (arreglo[medio] < dato) {
@@ -41,7 +42,6 @@ public class BusquedaBinariaPersistente {
                 fin = medio - 1;
             }
         }
-
         return -1;
     }
 
@@ -49,17 +49,23 @@ public class BusquedaBinariaPersistente {
 
         String ruta = "C://archivos/numeros.txt";
 
-        // Leer números desde archivo
         int[] numeros = leerArchivo(ruta);
 
-        // Número a buscar
-        int buscar = 11;
+        // ORDENAR para poder aplicar búsqueda binaria
+        Arrays.sort(numeros);
 
-        // Realizar búsqueda
+        // Mostrar números ordenados
+        System.out.println("=== Números ordenados ===");
+        for (int n : numeros) {
+            System.out.println(n);
+        }
+
+        int buscar = 45; // <-- cambia el número a buscar
+
         int resultado = busquedaBinaria(numeros, buscar);
 
         if (resultado != -1) {
-            System.out.println("Número encontrado en el índice: " + resultado);
+            System.out.println("Número encontrado en el índice ordenado: " + resultado);
         } else {
             System.out.println("Número no encontrado.");
         }
