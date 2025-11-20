@@ -44,3 +44,24 @@ public class BusquedaBinariaPersistente {
 
         return -1;
     }
+
+    public static void main(String[] args) {
+
+        String ruta = "C://archivos/numeros.txt";
+
+        // Leer números desde archivo
+        int[] numeros = leerArchivo(ruta);
+
+        // Número a buscar
+        int buscar = 11;
+
+        // Realizar búsqueda
+        int resultado = busquedaBinaria(numeros, buscar);
+
+        if (resultado != -1) {
+            System.out.println("Número encontrado en el índice: " + resultado);
+        } else {
+            System.out.println("Número no encontrado.");
+        }
+    }
+}
