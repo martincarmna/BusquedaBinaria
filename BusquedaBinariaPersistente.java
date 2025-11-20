@@ -23,3 +23,24 @@ public class BusquedaBinariaPersistente {
 
         return arreglo;
     }
+     // Algoritmo de búsqueda binaria
+    public static int busquedaBinaria(int[] arreglo, int dato) {
+        int inicio = 0;
+        int fin = arreglo.length - 1;
+
+        while (inicio <= fin) {
+            int medio = (inicio + fin) / 2;
+
+            if (arreglo[medio] == dato) {
+                return medio; 
+            }
+
+            if (arreglo[medio] < dato) {
+                inicio = medio + 1;
+            } else {
+                fin = medio - 1;
+            }
+        }
+
+        return -1;
+    }
